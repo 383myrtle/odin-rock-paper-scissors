@@ -1,4 +1,6 @@
 const options = ["Rock","Paper","Scissors"]
+let winsPlayer = 0
+let winsComputer = 0
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -21,9 +23,29 @@ function playRound(playerSelection, computerSelection){
 
     let plIndex = options.indexOf(pl)
     if (options.indexOf(com)==(plIndex+1)%3){
+        winsComputer++
         return `You lose :( you threw ${pl} while the computer threw ${com}`
     }
     else{
+        winsPlayer++
         return `You win! You threw ${pl} while the computer threw ${com}`
+    }
+}
+
+function game(){
+    let playerSelection
+    
+    while (true){
+        if (winsPlayer==5){
+            console.log("You win, a score of 5 was reached by you.")
+            break
+        }
+        else if (winsComputer==5){
+            console.log("You lose, a score of 5 was reached by the computer.")
+            break
+        }
+        
+        playerSelection = prompt('Enter "Rock", "Paper", or "Scissors"')
+        console.log(playRound(playerSelection,getComputerChoice()))
     }
 }
