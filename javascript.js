@@ -11,7 +11,7 @@ function getComputerChoice(){
 }
 
 function playRound(playerSelection, computerSelection){
-    let pl = playerSelection.slice(0,1).toUpperCase().concat("",playerSelection.slice(1)) //convert player selection to title case
+    let pl = playerSelection.slice(0,1).toUpperCase().concat("",playerSelection.slice(1).toLowerCase()) //convert player selection to title case
     let com = computerSelection //computer selection already in title case
 
     if (options.indexOf(pl)==-1){
